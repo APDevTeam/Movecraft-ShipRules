@@ -7,10 +7,10 @@ import net.countercraft.movecraft.craft.PilotedCraft;
 import net.countercraft.movecraft.craft.SubCraft;
 import net.countercraft.movecraft.craft.type.CraftType;
 import net.countercraft.movecraft.events.CraftDetectEvent;
-import net.countercraft.movecraft.libs.net.kyori.adventure.audience.Audience;
-import net.countercraft.movecraft.libs.net.kyori.adventure.text.Component;
 import net.countercraft.movecraft.util.ChatUtils;
 import net.countercraft.movecraft.util.hitboxes.HitBox;
+import net.kyori.adventure.audience.Audience;
+import net.kyori.adventure.text.Component;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Tag;
@@ -85,7 +85,8 @@ public class PilotListener implements Listener {
                 if (direction == CruiseDirection.NONE) {
                     direction = currentDirection;
                 } else if (direction != currentDirection && requireCruiseSignAlignment) {
-                    craft.getAudience().sendMessage(Component.text(ChatUtils.MOVECRAFT_COMMAND_PREFIX
+                    // TODO: Remove cast when maven cache is cleared
+                    ((Audience) craft.getAudience()).sendMessage(Component.text(ChatUtils.MOVECRAFT_COMMAND_PREFIX
                             + "Detection failed: All cruise signs must face the same way."));
                     event.setCancelled(true);
                 }
@@ -93,7 +94,8 @@ public class PilotListener implements Listener {
         }
 
         if (direction != CruiseDirection.NONE) {
-            if (!checkDimensions(craft.getHitBox(), direction, type, craft.getAudience())) {
+            // TODO: Remove cast when maven cache is cleared
+            if (!checkDimensions(craft.getHitBox(), direction, type, (Audience) craft.getAudience())) {
                 event.setCancelled(true);
                 return;
             }
