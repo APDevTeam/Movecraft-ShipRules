@@ -38,12 +38,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Publish to PaperMC Hangar
-        if: ${{ github.event_name == 'release' }}
-        run: ./gradlew publishPluginPublicationToHangar --parallel
-        env:
-          HANGAR_API_TOKEN: ${{ secrets.HANGAR_API_TOKEN }}
-
       - name: Stage jar for Actions
         if: ${{ github.event_name != 'release' }}
         run: mkdir staging && cp build/libs/Movecraft-ShipRules.jar staging && mv staging/Movecraft-ShipRules.jar staging/Movecraft-ShipRules_$GITHUB_SHA.jar
