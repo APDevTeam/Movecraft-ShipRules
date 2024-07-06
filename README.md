@@ -1,8 +1,8 @@
 # Movecraft-ShipRules
-A Spigot plugin designed to automatically enforce ship rules on Movecraft servers. Written by a4bde but borrows code heavily from Movecraft 8, written by cccm5, TylerS1066, and BaccaYarro.
+A Paper plugin designed to automatically enforce ship rules on Movecraft servers. Written by a4bde but borrows code heavily from Movecraft 8, written by cccm5, TylerS1066, and BaccaYarro.
 
 # Building
-Movecraft-ShipRules requires Movecraft 8 to build. Its directory should be placed in the same directory as the directory containing Movecraft, and then `mvn clean install` can be run to build the plugin. Jars will be located in `Movecraft-ShipRules/target`.
+`./gradlew clean build --parallel` can be run to build the plugin. Jars will be located in `Movecraft-ShipRules/build/libs`.
 
 # Usage
 Movecraft-ShipRules adds the following craft type properties:

@@ -1,7 +1,7 @@
 name: Movecraft-ShipRules
 main: net.countercraft.movecraft.rules.MovecraftShipRules
-version: ${project.version}
-api-version: 1.16
+version: ${projectVersion}
+api-version: 1.18
 author: a4bde, TylerS1066
 depend: [Movecraft]
 permissions:
